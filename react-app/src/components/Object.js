@@ -1,7 +1,7 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Sphere } from '@react-three/drei';
 import { useRef } from "react";
-export const Object = ({ count, intensity, position, objectPosition, bufferGeometry, color }) => {
+export const Object = ({ intensity, position, objectPosition, bufferGeometry, color }) => {
     const meshRef = useRef();
     useFrame(() => {
         if (meshRef.current) {

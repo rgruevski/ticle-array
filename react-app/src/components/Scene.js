@@ -12,14 +12,14 @@ function Scene() {
     const [pointLightPosition, setPointLightPosition] = useState([10, 10, 10]);
     const [bufferGeometry, setBufferGeometry] = useState([1, 1, 1]);
 
-    const handleColorChange = (event) => {
-        const { value } = event.target;
-        setColor(value);
-    };
     const handleCountChange = (event) => {
         const { value } = event.target;
         setCount(value);
     }
+    const handleColorChange = (event) => {
+        const { value } = event.target;
+        setColor(value);
+    };
     const handleAmbientLightIntensityChange = (event) => {
         const { value } = event.target;
         setAmbientLightIntensity(parseFloat(value));
@@ -51,7 +51,6 @@ function Scene() {
                 <Canvas className="object-frame">
                 <OrbitControls />
                 <Object
-                    orbCount={count}
                     intensity={ambientLightIntensity}
                     objectPosition={objectPosition}
                     position={pointLightPosition}
@@ -71,19 +70,19 @@ function Scene() {
                 </div> */}
                 <div className="card">
                     <input
+                        type="color"
+                        value={color}
+                        onChange={handleColorChange}
+                    />
+                </div>
+                <div className="card">
+                    <input
                         type="range"
                         min="0"
                         max="1"
                         step="0.1"
                         value={ambientLightIntensity}
                         onChange={handleAmbientLightIntensityChange}
-                    />
-                </div>
-                <div className="card">
-                    <input
-                        type="color"
-                        value={color}
-                        onChange={handleColorChange}
                     />
                 </div>
                 <div className="card">
